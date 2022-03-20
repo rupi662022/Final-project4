@@ -46,39 +46,9 @@ namespace FINAL_PROJECT4.Models
             this.isActive = isActive;
             this.userEmail = userEmail;
             this.createdDate = createdDate;
-<<<<<<< Updated upstream
         }
 
         public int GateId { get => gateId; set => gateId = value; }
-=======
-        }
-
-<<<<<<< HEAD
-        public GatePass(int id, string containerNum, string containerType, string transportCompany, string importer, string customsBroker, string shippingCompanyAndLine, string storageCertificate, string caseNumber, string note, string officeNote, string goToRepair, string returnFromRepair, string isActive, string userEmail, DateTime createdDate)
-        {
-            this.id = id;
-            this.containerNum = containerNum;
-            this.containerType = containerType;
-            this.transportCompany = transportCompany;
-            this.importer = importer;
-            this.customsBroker = customsBroker;
-            this.shippingCompanyAndLine = shippingCompanyAndLine;
-            this.storageCertificate = storageCertificate;
-            this.caseNumber = caseNumber;
-            this.note = note;
-            this.officeNote = officeNote;
-            this.goToRepair = goToRepair;
-            this.returnFromRepair = returnFromRepair;
-            this.isActive = isActive;
-            this.userEmail = userEmail;
-            this.createdDate = createdDate;
-        }
-
-        public int Id { get => id; set => id = value; }
-=======
-        public int GateId { get => gateId; set => gateId = value; }
->>>>>>> 99bdca16236b7e94e40ee57a8062f8495901b1da
->>>>>>> Stashed changes
         public string ContainerNum { get => containerNum; set => containerNum = value; }
         public string ContainerType { get => containerType; set => containerType = value; }
         public string TransportCompany { get => transportCompany; set => transportCompany = value; }
@@ -95,27 +65,10 @@ namespace FINAL_PROJECT4.Models
         public string UserEmail { get => userEmail; set => userEmail = value; }
         public DateTime CreatedDate { get => createdDate; set => createdDate = value; }
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
         public int Insert()
         {
             DataServices ds = new DataServices();
             return ds.Insert(this);
         }
-=======
->>>>>>> Stashed changes
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
->>>>>>> 99bdca16236b7e94e40ee57a8062f8495901b1da
->>>>>>> Stashed changes
     }
 }

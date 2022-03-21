@@ -5,15 +5,7 @@
         data: data,
         cache: false,
         headers: {
-<<<<<<< Updated upstream
-            'x-rapidapi-key': '3d6c24db64msh3beae04c060ecdap1a453djsn478b3e38fe7a',   // replace it with your own key
-=======
-<<<<<<< HEAD
-            'x-rapidapi-key': 'd226defdf7msh8fd3746255b50e1p1d499ejsn5e4154c0eefe',   // replace it with your own key
-=======
-            'x-rapidapi-key': '3d6c24db64msh3beae04c060ecdap1a453djsn478b3e38fe7a',   // replace it with your own key
->>>>>>> 99bdca16236b7e94e40ee57a8062f8495901b1da
->>>>>>> Stashed changes
+            'x-rapidapi-key': 'dca2725b5fmshf966fb6d48053f4p186f83jsn8182a1d0d0ce',   // replace it with your own key
         },
         contentType: "application/json",
         dataType: "json",

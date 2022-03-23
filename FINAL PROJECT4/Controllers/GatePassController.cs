@@ -14,7 +14,7 @@ namespace FINAL_PROJECT4.Controllers
 
         public HttpResponseMessage Post([FromBody] GatePass g)
         {
-            g.Insert();
+            g.InsertGatePass();
             return Request.CreateResponse(HttpStatusCode.Created);
         }
 

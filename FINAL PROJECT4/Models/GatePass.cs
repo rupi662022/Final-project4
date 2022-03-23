@@ -65,10 +65,13 @@ namespace FINAL_PROJECT4.Models
         public string UserEmail { get => userEmail; set => userEmail = value; }
         public DateTime CreatedDate { get => createdDate; set => createdDate = value; }
 
-        public int Insert()
+        public int InsertGatePass()
         {
+            int res = 0;
             DataServices ds = new DataServices();
-            return ds.Insert(this);
+            ds.InsertGatePass(this);
+            return res;
         }
-    }
+
+    
 }

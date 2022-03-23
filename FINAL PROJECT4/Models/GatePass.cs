@@ -8,7 +8,8 @@ namespace FINAL_PROJECT4.Models
 {
     public class GatePass
     {
-        int gateId;
+        int id;
+        string gateCode;
         string containerNum;
         string containerType;
         string transportCompany;
@@ -23,14 +24,15 @@ namespace FINAL_PROJECT4.Models
         string returnFromRepair;
         string isActive;
         string userEmail;
-        DateTime createdDate;
+         DateTime createdDate;
 
 
         public GatePass(){ }
 
-        public GatePass(int gateId, string containerNum, string containerType, string transportCompany, string importer, string customsBroker, string shippingCompanyAndLine, string storageCertificate, string caseNumber, string note, string officeNote, string goToRepair, string returnFromRepair, string isActive, string userEmail, DateTime createdDate)
+        public GatePass(int id, string gateCode, string containerNum, string containerType, string transportCompany, string importer, string customsBroker, string shippingCompanyAndLine, string storageCertificate, string caseNumber, string note, string officeNote, string goToRepair, string returnFromRepair, string isActive, string userEmail, DateTime createdDate)
         {
-            this.gateId = gateId;
+            this.id = id;
+            this.gateCode=gateCode;
             this.containerNum = containerNum;
             this.containerType = containerType;
             this.transportCompany = transportCompany;
@@ -48,7 +50,8 @@ namespace FINAL_PROJECT4.Models
             this.createdDate = createdDate;
         }
 
-        public int GateId { get => gateId; set => gateId = value; }
+        public int GateId { get => id; set => id = value; }
+        public string GateCode { get => gateCode; set => gateCode = value; }
         public string ContainerNum { get => containerNum; set => containerNum = value; }
         public string ContainerType { get => containerType; set => containerType = value; }
         public string TransportCompany { get => transportCompany; set => transportCompany = value; }

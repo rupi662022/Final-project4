@@ -76,9 +76,11 @@ namespace FINAL_PROJECT4.Models.DAL
             {
                 con = Connect("FinalProject");
 
-                using (SqlCommand cmd = new SqlCommand("NewCusomer", con))
+                using (SqlCommand cmd = new SqlCommand("NeGatePass", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@GateCode", g.GateCode);
+                    cmd.Parameters.AddWithValue("@ContainerNum", g.ContainerNum);
                     cmd.Parameters.AddWithValue("@ContainerNum", g.ContainerNum);
                     cmd.Parameters.AddWithValue("@ContainerType", g.ContainerType);
                     cmd.Parameters.AddWithValue("@TransportCompany", g.TransportCompany);

@@ -44,13 +44,13 @@
     db.clients = [
         {
             "Name": "Itay",
-            "Age": 61,
+            "Age": 29,
             "Country": 6,
-            "Address": "Ap #897-1459 Quam Avenue",
+            "Address": "TEST",
             "Married": false
         },
         {
-            "Name": "Test",
+            "Name": "Connor Johnston",
             "Age": 73,
             "Country": 7,
             "Address": "Ap #370-4647 Dis Av.",

@@ -20,40 +20,40 @@ namespace FINAL_PROJECT4.Models.DAL
         //}
 
 
-        public int InsertUser(User user)
-        {
-            SqlConnection con = null;
+        //public int InsertUser(User user)
+        //{
+        //    SqlConnection con = null;
 
-            try
-            {
-                con = Connect("FinalProject");
-                SqlCommand command = CreateInsertUser(user, con);
-                int affected = command.ExecuteNonQuery();
-                //if (UsersList == null)
-                //    UsersList = new List<User>();
-                //UsersList.Add(user);
-                return affected;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Failed in Insert", ex);
-            }
+        //    try
+        //    {
+        //        con = Connect("FinalProject");
+        //        SqlCommand command = CreateInsertUser(user, con);
+        //        int affected = command.ExecuteNonQuery();
+        //        //if (UsersList == null)
+        //        //    UsersList = new List<User>();
+        //        //UsersList.Add(user);
+        //        return affected;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Failed in Insert", ex);
+        //    }
 
-            finally
-            {
-                con.Close();
-            }
-        }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
 
-        SqlCommand CreateInsertUser(User user, SqlConnection con)
-        {
-            string insertStr = "INSERT INTO [SHAY_User] ([USR_Id],[USR_UserName],[USR_Email],[USR_Password]) " +
-                "VALUES('" + user.UserID + "','" + user.UserName + "','" + user.UserEmail + "','" + user.UserPassword + "')";
-            SqlCommand command = new SqlCommand(insertStr, con);
-            command.CommandType = System.Data.CommandType.Text;
-            command.CommandTimeout = 30;
-            return command;
-        }
+        //SqlCommand CreateInsertUser(User user, SqlConnection con)
+        //{
+        //    string insertStr = "INSERT INTO [SHAY_User] ([USR_Id],[USR_UserName],[USR_Email],[USR_Password]) " +
+        //        "VALUES('" + user.UserID + "','" + user.UserName + "','" + user.UserEmail + "','" + user.UserPassword + "')";
+        //    SqlCommand command = new SqlCommand(insertStr, con);
+        //    command.CommandType = System.Data.CommandType.Text;
+        //    command.CommandTimeout = 30;
+        //    return command;
+        ////}
 
         SqlConnection Connect(string connectionStringName)
         {
@@ -64,6 +64,21 @@ namespace FINAL_PROJECT4.Models.DAL
         }
 
 
+        //SqlConnection Connect(string conString)
+        //{
+
+        //    // read the connection string from the web.config file
+        //    string connectionString = WebConfigurationManager.ConnectionStrings[conString].ConnectionString;
+
+        //    // create the connection to the db
+        //    SqlConnection con = new SqlConnection(connectionString);
+
+        //    // open the database connection
+        //    con.Open();
+
+        //    return con;
+
+        //}
 
 
         public int InsertGatePass(GatePass g)
@@ -76,11 +91,10 @@ namespace FINAL_PROJECT4.Models.DAL
             {
                 con = Connect("FinalProject");
 
-                using (SqlCommand cmd = new SqlCommand("NeGatePass", con))
+                using (SqlCommand cmd = new SqlCommand("NewGatePass", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@GateCode", g.GateCode);
-                    cmd.Parameters.AddWithValue("@ContainerNum", g.ContainerNum);
+                 
                     cmd.Parameters.AddWithValue("@ContainerNum", g.ContainerNum);
                     cmd.Parameters.AddWithValue("@ContainerType", g.ContainerType);
                     cmd.Parameters.AddWithValue("@TransportCompany", g.TransportCompany);
@@ -90,11 +104,13 @@ namespace FINAL_PROJECT4.Models.DAL
                     cmd.Parameters.AddWithValue("@StorageCertificate", g.StorageCertificate);
                     cmd.Parameters.AddWithValue("@CaseNumber", g.CaseNumber);
                     cmd.Parameters.AddWithValue("@Note", g.Note);
+                    cmd.Parameters.AddWithValue("@OfficeNote", g.OfficeNote);
                     cmd.Parameters.AddWithValue("@GoToRepair", g.GoToRepair);
                     cmd.Parameters.AddWithValue("@ReturnFromRepair", g.ReturnFromRepair);
                     cmd.Parameters.AddWithValue("@IsActive", g.IsActive);
                     cmd.Parameters.AddWithValue("@UserEmail", g.UserEmail);
                     cmd.Parameters.AddWithValue("@CreatedDate", g.CreatedDate);
+               
 
                     var returnParameter = cmd.Parameters.Add("@results", SqlDbType.Int);
                     returnParameter.Direction = ParameterDirection.ReturnValue;

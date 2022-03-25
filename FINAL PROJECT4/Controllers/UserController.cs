@@ -23,10 +23,10 @@ namespace FINAL_PROJECT4.Controllers
         }
 
         // POST: api/User
-        public int Post([FromBody] User user)
-        {
-            return user.InsertUser();
-        }
+        //public int Post([FromBody] User user)
+        //{
+        //    //return user.InsertUser();
+        //}
 
         // PUT: api/User/5
         public void Put(int id, [FromBody]string value)

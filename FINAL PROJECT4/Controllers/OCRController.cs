@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using FINALPROJECT4.Models;
+using FINAL_PROJECT4.Models;
 
 namespace FINAL_PROJECT4.Controllers
 {
@@ -23,12 +23,12 @@ namespace FINAL_PROJECT4.Controllers
         }
 
         // POST: api/OCR
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/OCR/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

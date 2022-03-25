@@ -9,7 +9,7 @@
     <script src="../Scripts/APIWITHKEY.js"></script>
     <script src="../Scripts/ajaxCalls.js"></script>
     <script src="../Scripts/ajaxCallsWithKey.js"></script>
-
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
     <!--Tghu5061990-->
     <style type="text/css">
 
@@ -28,118 +28,134 @@
 
     <script>
 
-        var strToken = "";
-        var username = "";
-        var password = "";
-        var ContainerNumber = "";
-        function init() {
-            username = "shayport"//need to fill in manually
-            password = "shay@@2022"//need to fill in manually
-            LogIn(username, password, successLoginCB, errorLoginCB);
-            ContainerNumber = sessionStorage.getItem("ContainerNumber")
-            CreateGatePass();
-        }
+        //var strToken = "";
+        //var username = "";
+        //var password = "";
+        //var ContainerNumber = "";
+        //function init() {
+        //    username = "shayport"//need to fill in manually
+        //    password = "shay@@2022"//need to fill in manually
+        //    LogIn(username, password, successLoginCB, errorLoginCB);
+        //    ContainerNumber = sessionStorage.getItem("ContainerNumber")
+        //    CreateGatePass();
+        //}
 
-        function successLoginCB(data) {
-            alert("successLoginCB")
-            strToken = JSON.stringify(data["Token"])
+        //function successLoginCB(data) {
+        //    alert("successLoginCB")
+        //    strToken = JSON.stringify(data["Token"])
 
-            document.getElementById("responsePH").innerHTML = strToken
+        //    document.getElementById("responsePH").innerHTML = strToken
 
-        }
+        //}
 
-        function errorLoginCB() {
-            alert("errorLoginCB")
-        }
-
-
+        //function errorLoginCB() {
+        //    alert("errorLoginCB")
+        //}
 
 
-        function CreateGatePass() {
-            let tmpToken = strToken;
-            let apicall = "api/ContainerStatus/GetContainerStatusHaifa?ContainerNumber=" + ContainerNumber
-            GetAjaxCall(apicall, tmpToken, successResponseCB, errorResponseCB)
-
-        }
-        function successResponseCB(response) {
-            alert("successResponseCB")
-            console.log(response)
-            document.getElementById("Comments").value="צילום"
-            //let str = JSON.stringify(response)
-
-            //If DepartedContainers isnt null
-            if (response.ContainerStatusResponse.DepartedContainersList.length != 0)
-            {
-
-                document.getElementById("CustomAgentName").value = response.ContainerStatusResponse.DepartedContainersList[0].CustomsAgentName
-                document.getElementById("ContType").value = response.ContainerStatusResponse.DepartedContainersList[0].ContainerType
-                document.getElementById("ShippingCompNamePlusLine").value = response.ContainerStatusResponse.DepartedContainersList[0].ShippingAgentName + "  " + response.ContainerStatusResponse.DepartedContainersList[0].StorageCode
-
-                if (response.ContainerStatusResponse.DepartedContainersList[0].AppointmentExists != false) {
-
-                    document.getElementById("TransportCompName").value = response.ContainerStatusResponse.DepartedContainersList[0].AppointmentTruckingCompanyName
-                }
-
-                if (response.ContainerStatusResponse.DepartedContainersList[0].ExportDocumentNumber != null) {
-
-                    document.getElementById("StorageCertificate").value = "יש תעודה"
-                }
-                else {
-                    document.getElementById("StorageCertificate").value = "אין תעודה"
-
-                }
-
-            }
-            //If InportContainers isnt
-            if (response.ContainerStatusResponse.InPortContainersList.length != 0)
-            {
-                document.getElementById("CustomAgentName").value = response.ContainerStatusResponse.InPortContainersList[0].CustomsAgentName
-                document.getElementById("ContType").value = response.ContainerStatusResponse.InPortContainersList[0].ContainerType
-                document.getElementById("ShippingCompNamePlusLine").value = response.ContainerStatusResponse.InPortContainersList[0].ShippingAgentName + "  " + response.ContainerStatusResponse.InPortContainersList[0].StorageCode
-
-                if (response.ContainerStatusResponse.InPortContainersList[0].AppointmentExists != false) {//If there is a transportation company
-
-                    document.getElementById("TransportCompName").value = ContainerStatusResponse.InPortContainersListlength[0].AppointmentTruckingCompanyName
 
 
-                }
+        //function CreateGatePass() {
+        //    let tmpToken = strToken;
+        //    let apicall = "api/ContainerStatus/GetContainerStatusHaifa?ContainerNumber=" + ContainerNumber
+        //    GetAjaxCall(apicall, tmpToken, successResponseCB, errorResponseCB)
+
+        //}
+        //function successResponseCB(response) {
+        //    alert("successResponseCB")
+        //    console.log(response)
+        //    document.getElementById("Comments").value="צילום"
+        //    let str = JSON.stringify(response)
+
+        //    If DepartedContainers isnt null
+        //    if (response.ContainerStatusResponse.DepartedContainersList.length != 0)
+        //    {
+
+        //        document.getElementById("CustomAgentName").value = response.ContainerStatusResponse.DepartedContainersList[0].CustomsAgentName
+        //        document.getElementById("ContType").value = response.ContainerStatusResponse.DepartedContainersList[0].ContainerType
+        //        document.getElementById("ShippingCompNamePlusLine").value = response.ContainerStatusResponse.DepartedContainersList[0].ShippingAgentName + "  " + response.ContainerStatusResponse.DepartedContainersList[0].StorageCode
+
+        //        if (response.ContainerStatusResponse.DepartedContainersList[0].AppointmentExists != false) {
+
+        //            document.getElementById("TransportCompName").value = response.ContainerStatusResponse.DepartedContainersList[0].AppointmentTruckingCompanyName
+        //        }
+
+        //        if (response.ContainerStatusResponse.DepartedContainersList[0].ExportDocumentNumber != null) {
+
+        //            document.getElementById("StorageCertificate").value = "יש תעודה"
+        //        }
+        //        else {
+        //            document.getElementById("StorageCertificate").value = "אין תעודה"
+
+        //        }
+
+        //    }
+        //    If InportContainers isnt
+        //    if (response.ContainerStatusResponse.InPortContainersList.length != 0)
+        //    {
+        //        document.getElementById("CustomAgentName").value = response.ContainerStatusResponse.InPortContainersList[0].CustomsAgentName
+        //        document.getElementById("ContType").value = response.ContainerStatusResponse.InPortContainersList[0].ContainerType
+        //        document.getElementById("ShippingCompNamePlusLine").value = response.ContainerStatusResponse.InPortContainersList[0].ShippingAgentName + "  " + response.ContainerStatusResponse.InPortContainersList[0].StorageCode
+
+        //        if (response.ContainerStatusResponse.InPortContainersList[0].AppointmentExists != false) {//If there is a transportation company
+
+        //            document.getElementById("TransportCompName").value = ContainerStatusResponse.InPortContainersListlength[0].AppointmentTruckingCompanyName
 
 
-            }
-
-            //If InboundContainers isnt
-            if (response.ContainerStatusResponse.InboundContainersList.length != 0)
-            {
-                if (response.ContainerStatusResponse.InboundContainersList[0].ExportDocumentNumber != null) {
-
-                    document.getElementById("StorageCertificate").value = "יש תעודה"
-                }
-                else {
-                    document.getElementById("StorageCertificate").value = "אין תעודה"
+        //        }
 
 
-                }
+        //    }
 
-            }
+        //    If InboundContainers isnt
+        //    if (response.ContainerStatusResponse.InboundContainersList.length != 0)
+        //    {
+        //        if (response.ContainerStatusResponse.InboundContainersList[0].ExportDocumentNumber != null) {
 
-            //CheckForNulls();
-
-        }
-
-        function errorResponseCB() {
-
-            alert("errorResponseCB")
+        //            document.getElementById("StorageCertificate").value = "יש תעודה"
+        //        }
+        //        else {
+        //            document.getElementById("StorageCertificate").value = "אין תעודה"
 
 
-        }
+        //        }
 
-        function CheckForNulls()
+        //    }
+
+        //    //CheckForNulls();
+
+        //}
+
+        //function errorResponseCB() {
+
+        //    alert("errorResponseCB")
+
+
+        //}
+
+
+        $('#SendToMaintinance').change(function () {
+            cb = $(this);
+            cb.val(cb.prop('+'));
+        });
+
+
+
+        $('#ReturnedFromMaintinance').change(function () {
+            cb = $(this);
+            cb.val(cb.prop('+'));
+        });
+
+        function InsertG()
         {
+            //let email = localStorage["email"];
+            ////email = email.replace(/"/g, '');
 
+
+            var sqlDatetime = new Date().toISOString().slice(0, 19).replace('T', ' ');
             let gatePass = {
-                GateCode: document.getElementById("GateCode").value,
                 ContainerNum: document.getElementById("ContainerNum").value,
-                containerType: document.getElementById("ContType").value,
+                ContainerType: document.getElementById("ContType").value,
                 TransportCompany: document.getElementById("TransportCompName").value,
                 Importer: document.getElementById("ImporterName").value,
                 CustomsBroker: document.getElementById("CustomAgentName").value,
@@ -151,15 +167,30 @@
                 GoToRepair: document.getElementById("SendToMaintinance").value,
                 ReturnFromRepair: document.getElementById("ReturnedFromMaintinance").value,
                 UserEmail: document.getElementById("WorkerName").value,
-                IsActive: "+",
-                CreatedDate: "10/05/2020"
+                IsActive:'1' ,
+                CreatedDate: sqlDatetime
             }
 
+            
             ajaxCall("POST", "../api/GatePass", JSON.stringify(gatePass), postSuccessCB, postErrorCB);
 
             return false;
 
+
         }
+
+
+
+
+        function postSuccessCB() {
+            console.log("success");
+        }
+
+        function postErrorCB(err) {
+            alert(err.responseJSON.ExceptionMessage);
+        }
+
+
         //{
         //    this.id = id;
         //    this.containerNum = containerNum;
@@ -201,27 +232,19 @@
 
 
 
-        function postSuccessCB() {
-            console.log("success");
-        }
-
-        function postErrorCB(err) {
-            alert(err.responseJSON.ExceptionMessage);
-        }
-
     </script>
 </head>
-<body onload="init()">
+<body>
     <div>
         <input type="text" id="ContainerNum" /> :הכנס מספר מכולה
         <table>
             <tr>
-                <td><input type="checkbox" id="ReturnedFromMaintinance" /></td>
+                <td><input type="checkbox" id="ReturnedFromMaintinance" value="-" /></td>
                 <td> חזר מתיקון</td>
 
             </tr>
             <tr>
-                <td><input type="checkbox" id="SendToMaintinance" /> </td>
+                <td><input type="checkbox" id="SendToMaintinance"  value="-"  /> </td>
                 <td> יצא לתיקון</td>
             </tr>
         </table>
@@ -229,16 +252,7 @@
         <div id="GatePassProperties">
             <table>
 
-                <tr>
 
-                    <td class="TDvalue">
-                        <input id="GateCode" />
-                    </td>
-                    <td class="TDtext">
-                        :מספר שער
-                    </td>
-
-                </tr>
                 <tr>
 
                     <td class="TDvalue">
@@ -288,14 +302,14 @@
                         :חברת ספנות+קו
                     </td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td class="TDvalue">
                         <input id="ReturnPlaceName" />
                     </td>
                     <td class="TDtext">
                         :מקום החזרה
                     </td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td class="TDvalue">
                         <input id="StorageCertificate" />
@@ -347,7 +361,7 @@
 
                 <tr>
                     <td>
-                        <button onclick="CheckForNulls()" id="GatePassCreate">צור </button>
+                        <button onclick="InsertG()" id="GatePassCreate">צור </button>
                     </td>
 
                 </tr>

@@ -32,12 +32,12 @@ namespace FINAL_PROJECT4.Models
         public string UserType { get => userType; set => userType = value; }
 
 
-        public int InsertUser()
-        {
-            DataServices ds = new DataServices();
-            int status = ds.InsertUser(this);
-            return status;
-        }
+        //public int InsertUser()
+        //{
+        //    DataServices ds = new DataServices();
+        //    int status = ds.InsertUser(this);
+        //    return status;
+        //}
 
 
 

@@ -46,7 +46,7 @@
                     OfficeNote: document.getElementById("OfficeComents").value,
                     GoToRepair: document.getElementById("SendToMaintinance").value,
                     ReturnFromRepair: document.getElementById("ReturnedFromMaintinance").value,
-                    UserEmail: document.getElementById("WorkerName").value,
+                    UserEmail: document.getElementById("WorkerEmail").value,
                     IsActive: '1',
                     CreatedDate: sqlDatetime
                 }
@@ -421,10 +421,7 @@
                                     </div>
                                 </div>
                                 <div class="card-content collpase show">
-                                    <!--<div class="card-body">
-        <div class="card-text">
-            <p>This is 2-columns horizontal form with labels on left and form controls on right in one line. Add <code>.form-horizontal</code> class to the form tag to have horizontal form styling. User can also change the border color and background color of the form control. Add <code>border-*</code> class to change border color and <code>bg-*</code> class to change background color of the form control.</p>
-        </div>-->
+
                                     <form class="form form-horizontal">
                                         <div class="form-body">
                                             <div class="row">
@@ -437,31 +434,31 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-group row">
+                                                    <!--<div class="form-group row">
                                                         <label class="col-md-3 label-control" for="userinput2">סוג</label>
                                                         <div class="col-md-9">
                                                             <input type="text" id="ContType" class="form-control border-primary" placeholder="Cont Type" name="ContType">
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                
-                                                        <div class="col-md-9">
-                                                            <button class="btn btn-warning btn-min-width mr-1 mb-1 ladda-button" data-style="contract"><span class="ladda-label">המשך</span></button>                 
+                                                    <div class="form-group row ">
+                                                        <label class="col-md-3 label-control"></label>
+                                                        <div class="col-md-9 ">
+                                                            <button class="btn btn-warning btn-min-width mr-1 mb-1 ladda-button" data-style="contract"><span class="ladda-label">המשך</span></button>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="userinput4">Nick Name</label>
-                                                        <div class="col-md-9">
-                                                            <input type="text" id="userinput4" class="form-control border-primary" placeholder="Nick Name" name="nickname">
-                                                        </div>
+                                                    <label class="col-md-3 label-control" for="ContType">סוג</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="ContType" class="form-control border-primary" placeholder="Cont Type" name="ContType">
                                                     </div>
+                                                </div>
                                                 </div>
                                             </div>
 
@@ -498,7 +495,7 @@
                                                     </div>
 
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="ShippingCompNamePlusLine">חברת ספנות + קו</label>
+                                                        <label class="col-md-3 label-control" for="ShippingCompNamePlusLine">חברת ספנות+קו</label>
                                                         <div class="col-md-9">
                                                             <input class="form-control border-primary" type="text" placeholder="Shipping Company and Line" id="ShippingCompNamePlusLine">
                                                         </div>
@@ -513,16 +510,53 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label class="col-md-3 label-control" for="Notes">הערות</label>
+                                                        <label class="col-md-3 label-control" for="OfficeNotes"> הערות משרד</label>
                                                         <div class="col-md-9">
-                                                            <textarea id="Comments" rows="6" class="form-control border-primary" name="Comments" placeholder="הערות"></textarea>
+                                                            <textarea id="Comments" rows="5" class="form-control border-primary" name="Comments" placeholder="הערות משרד"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-actions right">
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        
+                                                            <label class="col-md-3 label-control " for="SendToMaintinance">יצא לתיקון</label>
+                                                            <div class="col-md-9">
+                                                                <input type="checkbox"  name="SendToMaintinance" id="SendToMaintinance">
+                                                            </div>
+                                                        
+                                                        </div>
+
+                                                    <div class="form-group row">
+
+                                                        <label class="col-md-3 label-control " for="ReturnedFromMaintinance">חזר מתיקון</label>
+                                                        <div class="col-md-9">
+                                                            <input type="checkbox" name="ReturnedFromMaintinance" id="ReturnedFromMaintinance">
+                                                        </div>
+                                                    </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control">משתמש</label>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control border-primary" type="text" placeholder="Worker Email" id="WorkerEmail">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-3 label-control" for="Notes">הערות</label>
+                                                        <div class="col-md-9">
+                                                            <textarea id="OfficeComents" rows="5" class="form-control border-primary" name="OfficeComents" placeholder="הערות"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        <div class="form-actions center">
                                             <button type="button" class="btn btn-warning mr-1">
                                                 <i class="ft-x"></i> Cancel
                                             </button>
@@ -530,9 +564,10 @@
                                                 <i class="fa fa-check-square-o"></i> Save
                                             </button>
                                         </div>
-                                    </form>
+                                    </div>
+                                </form>
 
-                                </div>
+
                             </div>
                             </div>
                         </div>

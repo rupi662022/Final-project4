@@ -5550,6 +5550,7 @@
     <Content Include="app-assets\vendors\js\tables\handsontable\languages.min.js" />
     <Content Include="app-assets\vendors\js\tables\jquery-1.12.3.js" />
     <Content Include="app-assets\vendors\js\tables\jquery.dataTables.min.js" />
+    <Content Include="app-assets\vendors\js\tables\jsgrid\GatePass.js" />
     <Content Include="app-assets\vendors\js\tables\jsgrid\griddata.js" />
     <Content Include="app-assets\vendors\js\tables\jsgrid\i18n\jsgrid-de.js" />
     <Content Include="app-assets\vendors\js\tables\jsgrid\i18n\jsgrid-es.js" />
@@ -5598,7 +5599,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+<<<<<<< HEAD
     <Content Include="Pages\CreateExample.html" />
+=======
+>>>>>>> 90c62b99067227e7974e9b4938f8c6c1d32b776e
     <Content Include="Pages\CreateGatePass.html" />
     <Content Include="Pages\GatePassCreationPage.html" />
     <Content Include="Pages\login.html" />

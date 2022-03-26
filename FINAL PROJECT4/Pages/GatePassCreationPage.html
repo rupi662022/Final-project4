@@ -10,6 +10,7 @@
     <script src="../Scripts/ajaxCalls.js"></script>
     <script src="../Scripts/ajaxCallsWithKey.js"></script>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/jquery-3.4.1.js"></script>
     <!--Tghu5061990-->
     <style type="text/css">
 
@@ -134,17 +135,34 @@
         //}
 
 
-        $('#SendToMaintinance').change(function () {
-            cb = $(this);
-            cb.val(cb.prop('+'));
-        });
+        //$('#SendToMaintinance').change(function () {
+        //    cb = $(this);
+        //    cb.val(cb.prop('+'));
+        //});
 
 
 
-        $('#ReturnedFromMaintinance').change(function () {
-            cb = $(this);
-            cb.val(cb.prop('+'));
-        });
+        //$('#ReturnedFromMaintinance').change(function () {
+        //    cb = $(this);
+        //    cb.val(cb.prop('+'));
+        //});
+
+
+        //$("input[type=checkbox]").on("change", function () {
+        //    if ($(this).is(':checked')) {
+        //        $(this).val("+");
+        //    } else {
+        //        $(this).val("-");
+        //    }
+        //});
+
+
+        //$(document).on("change", "#ReturnedFromMaintinance", function () {
+
+          
+     
+            
+        //});
 
         function InsertG()
         {
@@ -190,45 +208,6 @@
             alert(err.responseJSON.ExceptionMessage);
         }
 
-
-        //{
-        //    this.id = id;
-        //    this.containerNum = containerNum;
-        //    this.containerType = containerType;
-        //    this.transportCompany = transportCompany;
-        //    this.importer = importer;
-        //    this.customsBroker = customsBroker;
-        //    this.shippingCompanyAndLine = shippingCompanyAndLine;
-        //    this.storageCertificate = storageCertificate;
-        //    this.caseNumber = caseNumber;
-        //    this.note = note;
-        //    this.officeNote = officeNote;
-        //    this.goToRepair = goToRepair;
-        //    this.returnFromRepair = returnFromRepair;
-        //    this.isActive = isActive;
-        //    this.userEmail = userEmail;
-        //    this.createdDate = createdDate;
-
-        //function postGatePass() {
-
-        //        let gatePass = { // must be identical to the names of the properties
-        //            ContainerNum: containerNum,
-        //            CntainerType: containerType,
-        //            Importer: importer,
-        //            CustomsBroker: customsBroker,
-        //            ShippingCompanyAndLine: shippingCompanyAndLine,
-        //            StorageCertificate: storageCertificate,
-        //            CaseNumber: caseNumber,
-        //            Note: note,
-        //            officeNote: officeNote,
-        //            GoToRepair: goToRepair,
-        //            ReturnFromRepair:returnFromRepair,
-        //    }
-
-
-        //    ajaxCall("POST", "../api/GatePass", JSON.stringify(gatePass), postSuccessCB, postErrorCB);
-
-        //}
 
 
 

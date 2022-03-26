@@ -67,10 +67,10 @@ namespace FINAL_PROJECT4.Models
 
         public int InsertGatePass()
         {
-            int res = 0;
+            //int res = 0;
             DataServices ds = new DataServices();
-            ds.InsertGatePass(this);
-            return res;
+            return ds.InsertGatePass(this);
+            //return res;
         }
 
     }

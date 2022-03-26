@@ -83,10 +83,10 @@ namespace FINAL_PROJECT4.Models.DAL
 
         public int InsertGatePass(GatePass g)
         {
-            int res = 0;
+            //int res = 0;
 
-            SqlConnection con = null; 
-
+            SqlConnection con = null;
+            int numEffected = 0;
             try
             {
                 con = Connect("FinalProject");
@@ -110,20 +110,20 @@ namespace FINAL_PROJECT4.Models.DAL
                     cmd.Parameters.AddWithValue("@IsActive", g.IsActive);
                     cmd.Parameters.AddWithValue("@UserEmail", g.UserEmail);
                     cmd.Parameters.AddWithValue("@CreatedDate", g.CreatedDate);
-               
-
-                    var returnParameter = cmd.Parameters.Add("@results", SqlDbType.Int);
-                    returnParameter.Direction = ParameterDirection.ReturnValue;
-                    cmd.ExecuteNonQuery();
-                    var result = returnParameter.Value;
 
 
-                    if (result.Equals(1))
-                    {
-                        res = 1;
+                    //var returnParameter = cmd.Parameters.Add("@results", SqlDbType.Int);
+                    //returnParameter.Direction = ParameterDirection.ReturnValue;
+                    //cmd.ExecuteNonQuery();
+                    //var result = returnParameter.Value;
+                    numEffected = cmd.ExecuteNonQuery();
 
-                    }
-                    return res;
+                    //if (result.Equals(1))
+                    //{
+                    //    res = 1;
+
+                    //}
+                    //return res;
                 }
             }
             catch (Exception ex)
@@ -139,6 +139,7 @@ namespace FINAL_PROJECT4.Models.DAL
                 }
 
             }
+            return numEffected;
         }
 
 
